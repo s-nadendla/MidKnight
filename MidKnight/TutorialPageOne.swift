@@ -12,16 +12,11 @@ import UIKit
 
 class TutorialPageOne: UIViewController {
 
-    @IBOutlet weak var testText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        testText.text = "Changed"
     }
-    @IBAction func testButton(_ sender: UIButton) {
-        UserDefaults.standard.set(true, forKey: "FirstLaunch")
 
-    }
 }
