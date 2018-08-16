@@ -46,13 +46,21 @@
 		B95542A921254E190070CF79 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B95542AA21254F7A0070CF79 /* TutorialPageThree.swift */,
-				B95542A721254DED0070CF79 /* TutorialPageTwo.swift */,
+				B95542AE2125505F0070CF79 /* TutorialControllers */,
 				B97C714221200030007446BD /* ViewController.swift */,
-				B95542A5212163410070CF79 /* TutorialPageOne.swift */,
-				B95542AC21254FF90070CF79 /* TutorialPageFour.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B95542AE2125505F0070CF79 /* TutorialControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B95542A5212163410070CF79 /* TutorialPageOne.swift */,
+				B95542A721254DED0070CF79 /* TutorialPageTwo.swift */,
+				B95542AA21254F7A0070CF79 /* TutorialPageThree.swift */,
+				B95542AC21254FF90070CF79 /* TutorialPageFour.swift */,
+			);
+			path = TutorialControllers;
 			sourceTree = "<group>";
 		};
 		B97C713421200030007446BD = {
