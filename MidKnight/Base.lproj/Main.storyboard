@@ -234,10 +234,10 @@
             </objects>
             <point key="canvasLocation" x="487" y="-1330"/>
         </scene>
-        <!--View Controller-->
+        <!--Tutorial Page Four-->
         <scene sceneID="JCc-gj-mmc">
             <objects>
-                <viewController id="SOL-xd-aHl" sceneMemberID="viewController">
+                <viewController id="SOL-xd-aHl" customClass="TutorialPageFour" customModule="MidKnight" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zPX-wI-gJz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -558,7 +558,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lE7-XH-9iO"/>
-        <segue reference="ynN-wW-Mz8"/>
-        <segue reference="r3A-q5-hjF"/>
+        <segue reference="34B-F0-zhC"/>
+        <segue reference="uWT-gM-TBB"/>
     </inferredMetricsTieBreakers>
 </document>
