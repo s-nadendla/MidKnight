@@ -16,6 +16,9 @@ class TutorialPageFour: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
     }
+    @IBAction func finishButton(_ sender: Any) {
+        UserDefaults.standard.set(true, forKey: "FirstLaunch")
+    }
     
 }
 
