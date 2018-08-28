@@ -10,6 +10,7 @@
 		B95034F8212FD49D0062DC6C /* HorizontalSlideBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95034F7212FD49D0062DC6C /* HorizontalSlideBack.swift */; };
 		B95034FA212FD7E70062DC6C /* HorizontalSlideForward.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95034F9212FD7E70062DC6C /* HorizontalSlideForward.swift */; };
 		B95034FC21314B290062DC6C /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95034FB21314B290062DC6C /* SettingsPage.swift */; };
+		B95034FF213292970062DC6C /* AchievementsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95034FE213292970062DC6C /* AchievementsPage.swift */; };
 		B95542A6212163410070CF79 /* TutorialPageOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95542A5212163410070CF79 /* TutorialPageOne.swift */; };
 		B95542A821254DED0070CF79 /* TutorialPageTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95542A721254DED0070CF79 /* TutorialPageTwo.swift */; };
 		B95542AB21254F7A0070CF79 /* TutorialPageThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95542AA21254F7A0070CF79 /* TutorialPageThree.swift */; };
@@ -25,6 +26,7 @@
 		B95034F7212FD49D0062DC6C /* HorizontalSlideBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSlideBack.swift; sourceTree = "<group>"; };
 		B95034F9212FD7E70062DC6C /* HorizontalSlideForward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSlideForward.swift; sourceTree = "<group>"; };
 		B95034FB21314B290062DC6C /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		B95034FE213292970062DC6C /* AchievementsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsPage.swift; sourceTree = "<group>"; };
 		B95542A5212163410070CF79 /* TutorialPageOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageOne.swift; sourceTree = "<group>"; };
 		B95542A721254DED0070CF79 /* TutorialPageTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageTwo.swift; sourceTree = "<group>"; };
 		B95542AA21254F7A0070CF79 /* TutorialPageThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageThree.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				B95542AE2125505F0070CF79 /* TutorialControllers */,
 				B97C714221200030007446BD /* ViewController.swift */,
 				B95034FB21314B290062DC6C /* SettingsPage.swift */,
+				B95034FE213292970062DC6C /* AchievementsPage.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				B97C714321200030007446BD /* ViewController.swift in Sources */,
 				B97C714121200030007446BD /* AppDelegate.swift in Sources */,
 				B95542AD21254FF90070CF79 /* TutorialPageFour.swift in Sources */,
+				B95034FF213292970062DC6C /* AchievementsPage.swift in Sources */,
 				B95542A6212163410070CF79 /* TutorialPageOne.swift in Sources */,
 				B95034F8212FD49D0062DC6C /* HorizontalSlideBack.swift in Sources */,
 				B95542A821254DED0070CF79 /* TutorialPageTwo.swift in Sources */,
@@ -341,7 +345,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sainadendla.MidKnight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -358,7 +362,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sainadendla.MidKnight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -28,8 +28,7 @@ class TutorialPageThree: UIViewController {
         let components = Calendar.current.dateComponents([.hour, .minute], from: date)
         let hour = components.hour!
         let minute = components.minute!
-        
-        let a = timePicker.date
+
         print("TIME PICKER 2:    \(hour)   \(minute)")
     }
 }
