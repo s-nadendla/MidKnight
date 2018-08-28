@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        timeRemaining()
         createProgressCircle()
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -78,5 +79,51 @@ class ViewController: UIViewController {
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation, forKey: "circularMotion")
     }
+    func timeRemaining(){
+        
+        
+        let currentDate = NSDate()
+        print(currentDate)
+
+        
+        let sleepTime = UserDefaults.standard
+        if let setDate = sleepTime.object(forKey: "sleepTime") {
+            print(setDate)
+            //let interval = (setDate as AnyObject).timeIntervalSince(currentDate as Date)
+            //print(interval)
+            
+            
+            let calendar = Calendar.current
+            
+            var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
+            
+            dateComponents?.day = 28
+            dateComponents?.month = 8
+            dateComponents?.year = 2018
+            
+            let previousDate: Date? = calendar.date(from: dateComponents!)
+            print(previousDate!)
+            
+            let formatter = DateComponentsFormatter()
+            formatter.unitsStyle = .full
+            formatter.allowedUnits = [.month, .day, .hour, .minute, .second]
+            formatter.maximumUnitCount = 2   // often, you don't care about seconds if the elapsed time is in months, so you'll set max unit to whatever is appropriate in your case
+            
+            let string = formatter.string(from: previousDate as! Date, to: setDate as! Date)
+            print(string!)
+
+
+    
+        }
+
+
+        
+        
+    }
+    
+
+    
+    
+    
 }
 

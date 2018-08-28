@@ -26,9 +26,13 @@ class TutorialPageTwo: UIViewController {
         timePicker.datePickerMode = .time
         
         let date = timePicker.date
-        let components = Calendar.current.dateComponents([.hour, .minute], from: date)
+        let components = Calendar.current.dateComponents([.hour, .minute, ], from: date)
+        print(date)
         let hour = components.hour!
         let minute = components.minute!
+        let sleepTime = UserDefaults.standard
+        sleepTime.set(date, forKey: "sleepTime")
+
         print("TIME PICKER 1:    \(hour)   \(minute)")
         
         let center = UNUserNotificationCenter.current()
