@@ -90,17 +90,21 @@ class ViewController: UIViewController {
         
         if let setDate = defaults.object(forKey: "sleepTime") {
             print(setDate)
-
+            let components = Calendar.current.dateComponents([.hour, .minute], from: setDate as! Date)
+            print(components.hour!)
+            print(components.minute!)
             
             
             let calendar = Calendar.current
             
             var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
             
-            dateComponents?.day = defaults.integer(forKey: "sleepDay") - 1
+            let currentHour = dateComponents?.hour
+            let period = pmOrAm(setHour: components.hour!, currentHour: currentHour!)
+
+            dateComponents?.day = defaults.integer(forKey: "sleepDay") - period
             dateComponents?.month = defaults.integer(forKey: "sleepMonth")
             dateComponents?.year = defaults.integer(forKey: "sleepYear")
-            
             let previousDate: Date? = calendar.date(from: dateComponents!)
             print(previousDate!)
             
@@ -113,24 +117,45 @@ class ViewController: UIViewController {
             let duration = formatter.string(from: previousDate as! Date, to: setDate as! Date)
             print(duration!)
 
-            let stringArray = duration?.components(separatedBy: CharacterSet.decimalDigits.inverted)
+            var stringArray = duration?.components(separatedBy: CharacterSet.decimalDigits.inverted)
+            
+            var hourMinuteArray = [Int]()
+            
             for item in stringArray! {
                 if let number = Int(item) {
-                    print("number: \(number)")
+                    hourMinuteArray.append(number)
                 }
             }
-
-
-
-    
+            
+            var timeRemaining = ""
+            
+            if hourMinuteArray.count == 1 {
+                timeRemaining = "00:" + String(hourMinuteArray[0])
+            } else {
+                timeRemaining = String(hourMinuteArray[0]) + ":" + String(hourMinuteArray[1])
+            }
+            print(timeRemaining)
+            timeLabel.text = timeRemaining
         }
-
-
+    }
+    
+    func pmOrAm(setHour: Int, currentHour: Int) -> Int {
+        var period = 0
+        
+        if setHour > 0 && setHour < 12 {
+            if currentHour < 12 && currentHour < setHour {
+                period = 0
+            } else {
+                period = 1
+            }
+        }
+        if setHour > 12 && setHour < 24 {
+            period = 0
+        }
+        return period
         
         
     }
-    
-
     
     
     

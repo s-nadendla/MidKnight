@@ -29,8 +29,8 @@ class TutorialPageTwo: UIViewController {
         let content = UNMutableNotificationContent()
         content.title = "It is Bedtime"
         content.body = "Check in to go to sleep"
-        content.categoryIdentifier = "alarm"
-        content.userInfo = ["customData": "whater"]
+        content.categoryIdentifier = "reminder"
+        content.userInfo = ["customData": "dailyNotification"]
         content.sound = UNNotificationSound.default()
         
         var dateComponents = DateComponents()
