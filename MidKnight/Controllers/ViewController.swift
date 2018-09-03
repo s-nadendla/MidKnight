@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     let outlineLayer = CAShapeLayer()
     let sleepLayer = CAShapeLayer()
 
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet weak var minuteLabel: UILabel!
     
     @IBOutlet weak var bedtimeStatusLabel: UILabel!
     
@@ -23,7 +24,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         timeRemaining()
-        createProgressCircle()
     }
     override func viewDidAppear(_ animated: Bool) {
         //testing line to force tutorial get rid of in future
@@ -41,10 +41,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func createProgressCircle(){
+    func createProgressCircle(hourRemaining: Int, minuteRemaining: Int){
+        let timeRemaining = float_t(hourRemaining*60 + minuteRemaining)
+        let percentTime = -((timeRemaining - 1440)/1440)
         let center = CGPoint.init(x: 375/2, y: 210)
         
-        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: CGFloat.pi/3, endAngle: CGFloat.pi , clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: 0, endAngle: CGFloat.pi * CGFloat(percentTime) * 3/2, clockwise: true)
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = UIColor(red: 0.96, green: 0.65, blue: 0.13, alpha: 1.00).cgColor
         shapeLayer.lineWidth = 10
@@ -61,7 +63,7 @@ class ViewController: UIViewController {
 
         
         
-        let sleepPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi/2, endAngle: CGFloat.pi/2, clockwise: true)
+        let sleepPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi/2, endAngle: 0, clockwise: true)
         sleepLayer.fillColor = UIColor.clear.cgColor
         sleepLayer.strokeColor = UIColor(red: 0.42, green: 0.42, blue: 0.42, alpha: 1.00).cgColor
         sleepLayer.lineWidth = 10
@@ -127,15 +129,29 @@ class ViewController: UIViewController {
                 }
             }
             
-            var timeRemaining = ""
-            
+            var minuteRemaining = ""
+            var hourRemaining = ""
+            var firstChar = Array(duration!)[3]
+
             if hourMinuteArray.count == 1 {
-                timeRemaining = "00:" + String(hourMinuteArray[0])
+                if firstChar == "m" || firstChar == "i"{
+                    hourRemaining = "0"
+                    minuteRemaining = String(hourMinuteArray[0])
+                } else {
+                    hourRemaining = String(hourMinuteArray[0])
+                    minuteRemaining = "0"
+                }
             } else {
-                timeRemaining = String(hourMinuteArray[0]) + ":" + String(hourMinuteArray[1])
+                hourRemaining = String(hourMinuteArray[0])
+                minuteRemaining = String(hourMinuteArray[1])
+
             }
-            print(timeRemaining)
-            timeLabel.text = timeRemaining
+            print(hourRemaining)
+            print(minuteRemaining)
+            hourLabel.text = hourRemaining
+            minuteLabel.text = minuteRemaining
+            createProgressCircle(hourRemaining: Int(hourRemaining)!, minuteRemaining: Int(minuteRemaining)!)
+
         }
     }
     
@@ -158,6 +174,9 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func sleepButton(_ sender: Any) {
+        print("sleep state entered")
+    }
     
 }
 
