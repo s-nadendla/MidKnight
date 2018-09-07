@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+ 
+
+
+
 
 class AchievementsPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -31,7 +35,7 @@ class AchievementsPage: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell"/*Identifier*/, for: indexPath)
         cell.textLabel?.text = test[indexPath.row]
-        
+        cell.textLabel?.textColor = UIColor.white
         tableView.backgroundColor = .clear
         cell.backgroundColor = .clear
         tableView.tableFooterView = UIView()

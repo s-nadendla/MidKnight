@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     let outlineLayer = CAShapeLayer()
     let sleepLayer = CAShapeLayer()
 
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var bedtimeStatusLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,37 +84,42 @@ class ViewController: UIViewController {
         shapeLayer.add(basicAnimation, forKey: "circularMotion")
     }
     func timeRemaining(){
-        
-        
-        let currentDate = NSDate()
-        print(currentDate)
 
         
-        let sleepTime = UserDefaults.standard
-        if let setDate = sleepTime.object(forKey: "sleepTime") {
+        let defaults = UserDefaults.standard
+        
+        if let setDate = defaults.object(forKey: "sleepTime") {
             print(setDate)
-            //let interval = (setDate as AnyObject).timeIntervalSince(currentDate as Date)
-            //print(interval)
+
             
             
             let calendar = Calendar.current
             
             var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
             
-            dateComponents?.day = 28
-            dateComponents?.month = 8
-            dateComponents?.year = 2018
+            dateComponents?.day = defaults.integer(forKey: "sleepDay") - 1
+            dateComponents?.month = defaults.integer(forKey: "sleepMonth")
+            dateComponents?.year = defaults.integer(forKey: "sleepYear")
             
             let previousDate: Date? = calendar.date(from: dateComponents!)
             print(previousDate!)
             
             let formatter = DateComponentsFormatter()
             formatter.unitsStyle = .full
-            formatter.allowedUnits = [.month, .day, .hour, .minute, .second]
+            formatter.allowedUnits = [.hour, .minute]
             formatter.maximumUnitCount = 2   // often, you don't care about seconds if the elapsed time is in months, so you'll set max unit to whatever is appropriate in your case
             
-            let string = formatter.string(from: previousDate as! Date, to: setDate as! Date)
-            print(string!)
+
+            let duration = formatter.string(from: previousDate as! Date, to: setDate as! Date)
+            print(duration!)
+
+            let stringArray = duration?.components(separatedBy: CharacterSet.decimalDigits.inverted)
+            for item in stringArray! {
+                if let number = Int(item) {
+                    print("number: \(number)")
+                }
+            }
+
 
 
     
