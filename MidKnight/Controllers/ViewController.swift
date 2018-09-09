@@ -176,6 +176,10 @@ class ViewController: UIViewController {
     
     @IBAction func sleepButton(_ sender: Any) {
         print("sleep state entered")
+        let defaults = UserDefaults.standard
+        let streak = defaults.integer(forKey: "streak")
+        defaults.set(streak + 1,forKey: "streak")
+        print(streak)
     }
     
 }

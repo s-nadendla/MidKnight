@@ -62,6 +62,7 @@ class TutorialPageTwo: UIViewController {
         defaults.set(day, forKey: "sleepDay")
         defaults.set(month, forKey: "sleepMonth")
         defaults.set(year, forKey: "sleepYear")
+        defaults.set(0, forKey: "streak")
         print("TIME PICKER 1:    \(hour)   \(minute)")
         
         let center = UNUserNotificationCenter.current()

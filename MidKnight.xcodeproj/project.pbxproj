@@ -10,7 +10,6 @@
 		B95034F8212FD49D0062DC6C /* HorizontalSlideBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95034F7212FD49D0062DC6C /* HorizontalSlideBack.swift */; };
 		B95034FA212FD7E70062DC6C /* HorizontalSlideForward.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95034F9212FD7E70062DC6C /* HorizontalSlideForward.swift */; };
 		B95034FC21314B290062DC6C /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95034FB21314B290062DC6C /* SettingsPage.swift */; };
-		B95034FF213292970062DC6C /* AchievementsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95034FE213292970062DC6C /* AchievementsPage.swift */; };
 		B95542A6212163410070CF79 /* TutorialPageOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95542A5212163410070CF79 /* TutorialPageOne.swift */; };
 		B95542A821254DED0070CF79 /* TutorialPageTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95542A721254DED0070CF79 /* TutorialPageTwo.swift */; };
 		B95542AB21254F7A0070CF79 /* TutorialPageThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95542AA21254F7A0070CF79 /* TutorialPageThree.swift */; };
@@ -25,13 +24,14 @@
 		B9A57D1D213D3D9400ED09F6 /* AboutPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A57D1C213D3D9400ED09F6 /* AboutPage.swift */; };
 		B9A57D26213D47E000ED09F6 /* CurrentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A57D25213D47E000ED09F6 /* CurrentView.swift */; };
 		B9A57D28213D485B00ED09F6 /* SleepPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A57D27213D485B00ED09F6 /* SleepPage.swift */; };
+		B9A57D362143BE6C00ED09F6 /* AchievementsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A57D352143BE6C00ED09F6 /* AchievementsPage.swift */; };
+		B9A57D382143CA3700ED09F6 /* TableViewCellCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A57D372143CA3700ED09F6 /* TableViewCellCustom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B95034F7212FD49D0062DC6C /* HorizontalSlideBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSlideBack.swift; sourceTree = "<group>"; };
 		B95034F9212FD7E70062DC6C /* HorizontalSlideForward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSlideForward.swift; sourceTree = "<group>"; };
 		B95034FB21314B290062DC6C /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
-		B95034FE213292970062DC6C /* AchievementsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsPage.swift; sourceTree = "<group>"; };
 		B95542A5212163410070CF79 /* TutorialPageOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageOne.swift; sourceTree = "<group>"; };
 		B95542A721254DED0070CF79 /* TutorialPageTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageTwo.swift; sourceTree = "<group>"; };
 		B95542AA21254F7A0070CF79 /* TutorialPageThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageThree.swift; sourceTree = "<group>"; };
@@ -48,6 +48,8 @@
 		B9A57D1C213D3D9400ED09F6 /* AboutPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPage.swift; sourceTree = "<group>"; };
 		B9A57D25213D47E000ED09F6 /* CurrentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentView.swift; sourceTree = "<group>"; };
 		B9A57D27213D485B00ED09F6 /* SleepPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPage.swift; sourceTree = "<group>"; };
+		B9A57D352143BE6C00ED09F6 /* AchievementsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsPage.swift; sourceTree = "<group>"; };
+		B9A57D372143CA3700ED09F6 /* TableViewCellCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCustom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +79,6 @@
 				B95034FD21314B4C0062DC6C /* SlideGestures */,
 				B95542AE2125505F0070CF79 /* TutorialControllers */,
 				B97C714221200030007446BD /* ViewController.swift */,
-				B95034FE213292970062DC6C /* AchievementsPage.swift */,
 				B9A57D27213D485B00ED09F6 /* SleepPage.swift */,
 			);
 			path = Controllers;
@@ -113,6 +114,7 @@
 		B97C713F21200030007446BD /* MidKnight */ = {
 			isa = PBXGroup;
 			children = (
+				B9A57D342143AA5400ED09F6 /* Achievements */,
 				B9A57D24213D47D000ED09F6 /* Extension */,
 				B95542A921254E190070CF79 /* Controllers */,
 				B97C714021200030007446BD /* AppDelegate.swift */,
@@ -141,6 +143,15 @@
 				B9A57D25213D47E000ED09F6 /* CurrentView.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B9A57D342143AA5400ED09F6 /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				B9A57D352143BE6C00ED09F6 /* AchievementsPage.swift */,
+				B9A57D372143CA3700ED09F6 /* TableViewCellCustom.swift */,
+			);
+			path = Achievements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +227,7 @@
 			files = (
 				B9A57D1D213D3D9400ED09F6 /* AboutPage.swift in Sources */,
 				B9A57D1B213D3D7B00ED09F6 /* SettingsEditTimeTwo.swift in Sources */,
+				B9A57D382143CA3700ED09F6 /* TableViewCellCustom.swift in Sources */,
 				B9A57D19213D380700ED09F6 /* SettingsEditTime.swift in Sources */,
 				B9A57D28213D485B00ED09F6 /* SleepPage.swift in Sources */,
 				B95034FC21314B290062DC6C /* SettingsPage.swift in Sources */,
@@ -223,7 +235,7 @@
 				B97C714121200030007446BD /* AppDelegate.swift in Sources */,
 				B9A57D26213D47E000ED09F6 /* CurrentView.swift in Sources */,
 				B95542AD21254FF90070CF79 /* TutorialPageFour.swift in Sources */,
-				B95034FF213292970062DC6C /* AchievementsPage.swift in Sources */,
+				B9A57D362143BE6C00ED09F6 /* AchievementsPage.swift in Sources */,
 				B95542A6212163410070CF79 /* TutorialPageOne.swift in Sources */,
 				B95034F8212FD49D0062DC6C /* HorizontalSlideBack.swift in Sources */,
 				B95542A821254DED0070CF79 /* TutorialPageTwo.swift in Sources */,
