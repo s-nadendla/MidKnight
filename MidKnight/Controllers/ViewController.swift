@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     let shapeLayer = CAShapeLayer()
     let outlineLayer = CAShapeLayer()
     let sleepLayer = CAShapeLayer()
-
+    var timeDifference = 0
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     
@@ -41,9 +41,9 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func createProgressCircle(hourRemaining: Int, minuteRemaining: Int){
-        let timeRemaining = float_t(hourRemaining*60 + minuteRemaining)
-        let percentTime = -((timeRemaining - 1440)/1440)
+    func createProgressCircle(){
+
+        let percentTime = -((Float(timeDifference) - 1440)/1440)
         let center = CGPoint.init(x: 375/2, y: 210)
         
         let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: 0, endAngle: CGFloat.pi * CGFloat(percentTime) * 3/2, clockwise: true)
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         shapeLayer.strokeColor = UIColor(red: 0.96, green: 0.65, blue: 0.13, alpha: 1.00).cgColor
         shapeLayer.lineWidth = 10
         shapeLayer.strokeEnd = 0
-        shapeLayer.lineCap = kCALineCapRound
+        //shapeLayer.lineCap = kCALineCapRound
         shapeLayer.path = circularPath.cgPath
         
         
@@ -86,90 +86,46 @@ class ViewController: UIViewController {
         shapeLayer.add(basicAnimation, forKey: "circularMotion")
     }
     func timeRemaining(){
+        
+        timeDifference = calculateTimeDifference()
+
+        let hourRemaining = timeDifference / 60
+        let minuteRemaining = timeDifference % 60
+        hourLabel.text = String(hourRemaining)
+        minuteLabel.text = String(minuteRemaining)
+        createProgressCircle()
 
         
-        let defaults = UserDefaults.standard
-        
-        if let setDate = defaults.object(forKey: "sleepTime") {
-            print(setDate)
-            let components = Calendar.current.dateComponents([.hour, .minute], from: setDate as! Date)
-            print(components.hour!)
-            print(components.minute!)
-            
-            
-            let calendar = Calendar.current
-            
-            var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
-            
-            let currentHour = dateComponents?.hour
-            let period = pmOrAm(setHour: components.hour!, currentHour: currentHour!)
-
-            dateComponents?.day = defaults.integer(forKey: "sleepDay") - period
-            dateComponents?.month = defaults.integer(forKey: "sleepMonth")
-            dateComponents?.year = defaults.integer(forKey: "sleepYear")
-            let previousDate: Date? = calendar.date(from: dateComponents!)
-            print(previousDate!)
-            
-            let formatter = DateComponentsFormatter()
-            formatter.unitsStyle = .full
-            formatter.allowedUnits = [.hour, .minute]
-            formatter.maximumUnitCount = 2   // often, you don't care about seconds if the elapsed time is in months, so you'll set max unit to whatever is appropriate in your case
-            
-
-            let duration = formatter.string(from: previousDate as! Date, to: setDate as! Date)
-            print(duration!)
-
-            var stringArray = duration?.components(separatedBy: CharacterSet.decimalDigits.inverted)
-            
-            var hourMinuteArray = [Int]()
-            
-            for item in stringArray! {
-                if let number = Int(item) {
-                    hourMinuteArray.append(number)
-                }
-            }
-            
-            var minuteRemaining = ""
-            let firstChar = Array(duration!)[3]
-
-            if hourMinuteArray.count == 1 {
-                if firstChar == "m" || firstChar == "i"{
-                    hourRemaining = "0"
-                    minuteRemaining = String(hourMinuteArray[0])
-                } else {
-                    hourRemaining = String(hourMinuteArray[0])
-                    minuteRemaining = "0"
-                }
-            } else {
-                hourRemaining = String(hourMinuteArray[0])
-                minuteRemaining = String(hourMinuteArray[1])
-
-            }
-            print(hourRemaining)
-            print(minuteRemaining)
-            hourLabel.text = hourRemaining
-            minuteLabel.text = minuteRemaining
-            createProgressCircle(hourRemaining: Int(hourRemaining)!, minuteRemaining: Int(minuteRemaining)!)
-
-        }
     }
     
-    func pmOrAm(setHour: Int, currentHour: Int) -> Int {
-        var period = 0
+    func calculateTimeDifference() -> Int{
+        let defaults = UserDefaults.standard
+        let sleepHour = defaults.integer(forKey: "sleepHour")
+        let sleepMinute = defaults.integer(forKey: "sleepMinute")
         
-        if setHour > 0 && setHour < 12 {
-            if currentHour < 12 && currentHour < setHour {
-                period = 0
-            } else {
-                period = 1
-            }
+        let components = Calendar.current.dateComponents([.hour, .minute], from: Date())
+        let currentHour = components.hour!
+        let currentMinute = components.minute!
+        
+        
+        let endArray = [sleepHour, sleepMinute]
+        let startArray = [currentHour, currentMinute]
+        
+        let startHours = Int(startArray[0]) * 60
+        let startMinutes = Int(startArray[1]) + startHours
+        
+        let endHours = Int(endArray[0]) * 60
+        let endMinutes = Int(endArray[1]) + endHours
+        
+        var timeDifference = endMinutes - startMinutes
+        
+        let day = 24 * 60
+        
+        if timeDifference < 0 {
+            timeDifference += day
         }
-        if setHour > 12 && setHour < 24 {
-            period = 0
-        }
-        return period
-        
-        
+        print("TIME DIF: \(timeDifference)")
+        return timeDifference
     }
     
     
@@ -185,7 +141,7 @@ class ViewController: UIViewController {
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "sleepSegue" {
-            if (Int(hourRemaining)! < 1){
+            if (timeDifference < 60){
                 return true
             } else {
                 let alert = UIAlertController(title: "Not Bedtime!", message: "You can go to sleep one hour before bedtime", preferredStyle: UIAlertControllerStyle.alert)
@@ -203,6 +159,6 @@ class ViewController: UIViewController {
         }
 
     }
-    
 }
+
 

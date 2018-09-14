@@ -49,19 +49,16 @@ class TutorialPageTwo: UIViewController {
         timePicker.datePickerMode = .time
         
         let date = timePicker.date
-        let components = Calendar.current.dateComponents([.hour, .minute,.day,.month,.year], from: date)
+        let components = Calendar.current.dateComponents([.hour, .minute], from: date)
         print(date)
         let hour = components.hour!
         let minute = components.minute!
-        let day = components.day!
-        let month = components.month!
-        let year = components.year!
+
 
         let defaults = UserDefaults.standard
-        defaults.set(date, forKey: "sleepTime")
-        defaults.set(day, forKey: "sleepDay")
-        defaults.set(month, forKey: "sleepMonth")
-        defaults.set(year, forKey: "sleepYear")
+        defaults.set(minute, forKey: "sleepMinute")
+        defaults.set(hour, forKey: "sleepHour")
+
         defaults.set(0, forKey: "streak")
         print("TIME PICKER 1:    \(hour)   \(minute)")
         
