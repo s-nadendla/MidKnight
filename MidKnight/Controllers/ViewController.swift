@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bedtimeStatusLabel: UILabel!
     
+    var hourRemaining = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,8 +131,7 @@ class ViewController: UIViewController {
             }
             
             var minuteRemaining = ""
-            var hourRemaining = ""
-            var firstChar = Array(duration!)[3]
+            let firstChar = Array(duration!)[3]
 
             if hourMinuteArray.count == 1 {
                 if firstChar == "m" || firstChar == "i"{
@@ -175,11 +175,34 @@ class ViewController: UIViewController {
     
     
     @IBAction func sleepButton(_ sender: Any) {
+
+        
         print("sleep state entered")
         let defaults = UserDefaults.standard
         let streak = defaults.integer(forKey: "streak")
         defaults.set(streak + 1,forKey: "streak")
         print(streak)
+        
+    }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "sleepSegue" {
+            if (Int(hourRemaining)! < 1){
+                return true
+            } else {
+                let alert = UIAlertController(title: "Not Bedtime!", message: "You can go to sleep one hour before bedtime", preferredStyle: UIAlertControllerStyle.alert)
+                
+                // add an action (button)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                
+                // show the alert
+                self.present(alert, animated: true, completion: nil)
+                return false
+            }
+        }
+        else {
+            return true
+        }
+
     }
     
 }

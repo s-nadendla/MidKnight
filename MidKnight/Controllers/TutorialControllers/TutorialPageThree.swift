@@ -28,6 +28,9 @@ class TutorialPageThree: UIViewController {
         let components = Calendar.current.dateComponents([.hour, .minute], from: date)
         let hour = components.hour!
         let minute = components.minute!
+        let defaults = UserDefaults.standard
+        defaults.set(hour, forKey: "wakeHour")
+        defaults.set(minute, forKey: "wakeMinute")
 
         print("TIME PICKER 2:    \(hour)   \(minute)")
     }
