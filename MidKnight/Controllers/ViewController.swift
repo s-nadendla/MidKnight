@@ -17,13 +17,29 @@ class ViewController: UIViewController {
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     
+    @IBOutlet weak var streakIndicator: UILabel!
     @IBOutlet weak var bedtimeStatusLabel: UILabel!
+    var gameTimer: Timer!
     
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let defaults = UserDefaults.standard
+        let streak = defaults.integer(forKey: "streak")
+        streakIndicator.text = String(streak)
+        gameTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+
         timeRemaining()
+    }
+    
+    
+    @objc func runTimedCode() {
+        print("Timed Function")
+        timeRemaining()
+        // your code here will run every hour
     }
     override func viewDidAppear(_ animated: Bool) {
         //testing line to force tutorial get rid of in future
@@ -40,6 +56,13 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        print("timerStopped")
+        gameTimer.invalidate()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        print("timerStopped")
+        gameTimer.invalidate()
+
     }
     func createProgressCircle(){
 
@@ -135,7 +158,6 @@ class ViewController: UIViewController {
         print("sleep state entered")
         let defaults = UserDefaults.standard
         let streak = defaults.integer(forKey: "streak")
-        defaults.set(streak + 1,forKey: "streak")
         print("streak \(streak)")
 
     }
@@ -144,7 +166,7 @@ class ViewController: UIViewController {
             if (timeDifference < 60){
                 return true
             } else {
-                let alert = UIAlertController(title: "Not Bedtime!", message: "You can go to sleep one hour before bedtime", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Not Bedtime!", message: "You can go to sleep at most one hour before your set bedtime", preferredStyle: UIAlertControllerStyle.alert)
                 
                 // add an action (button)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))

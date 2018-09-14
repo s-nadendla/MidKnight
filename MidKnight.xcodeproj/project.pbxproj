@@ -26,6 +26,7 @@
 		B9A57D28213D485B00ED09F6 /* SleepPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A57D27213D485B00ED09F6 /* SleepPage.swift */; };
 		B9A57D362143BE6C00ED09F6 /* AchievementsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A57D352143BE6C00ED09F6 /* AchievementsPage.swift */; };
 		B9A57D382143CA3700ED09F6 /* TableViewCellCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A57D372143CA3700ED09F6 /* TableViewCellCustom.swift */; };
+		B9A57D3A214BB52700ED09F6 /* StreakPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A57D39214BB52700ED09F6 /* StreakPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		B9A57D27213D485B00ED09F6 /* SleepPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPage.swift; sourceTree = "<group>"; };
 		B9A57D352143BE6C00ED09F6 /* AchievementsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsPage.swift; sourceTree = "<group>"; };
 		B9A57D372143CA3700ED09F6 /* TableViewCellCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCustom.swift; sourceTree = "<group>"; };
+		B9A57D39214BB52700ED09F6 /* StreakPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				B95542AE2125505F0070CF79 /* TutorialControllers */,
 				B97C714221200030007446BD /* ViewController.swift */,
 				B9A57D27213D485B00ED09F6 /* SleepPage.swift */,
+				B9A57D39214BB52700ED09F6 /* StreakPage.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				B9A57D26213D47E000ED09F6 /* CurrentView.swift in Sources */,
 				B95542AD21254FF90070CF79 /* TutorialPageFour.swift in Sources */,
 				B9A57D362143BE6C00ED09F6 /* AchievementsPage.swift in Sources */,
+				B9A57D3A214BB52700ED09F6 /* StreakPage.swift in Sources */,
 				B95542A6212163410070CF79 /* TutorialPageOne.swift in Sources */,
 				B95034F8212FD49D0062DC6C /* HorizontalSlideBack.swift in Sources */,
 				B95542A821254DED0070CF79 /* TutorialPageTwo.swift in Sources */,
@@ -385,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 48M4AZ96UL;
 				INFOPLIST_FILE = MidKnight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -402,6 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 48M4AZ96UL;
 				INFOPLIST_FILE = MidKnight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -80,9 +80,10 @@ class SleepPage: UIViewController {
             alert.addAction(UIAlertAction(title: "Leave", style: UIAlertActionStyle.destructive, handler: { action in
                     
                 // do something like...
-                self.performSegue(withIdentifier: "cancelSegue", sender: self)
                 let defaults = UserDefaults.standard
                 defaults.set(0, forKey: "streak")
+                self.performSegue(withIdentifier: "cancelSegue", sender: self)
+
                     
             }))
 

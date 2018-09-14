@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class SettingsEditTime: UIViewController {
 
@@ -40,6 +41,33 @@ class SettingsEditTime: UIViewController {
         
         defaults.set(0, forKey: "streak")
         print("TIME PICKER 1:    \(hour)   \(minute)")
+        
+        
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        scheduleLocal(hour: hour, minute: minute)
+
+    }
+    func scheduleLocal(hour: Int, minute: Int) {
+        let center = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "It is Bedtime"
+        content.body = "Check in to go to sleep"
+        content.categoryIdentifier = "reminder"
+        content.userInfo = ["customData": "dailyNotification"]
+        content.sound = UNNotificationSound.default()
+        var totalMinutes = (hour * 60) + minute
+        totalMinutes = totalMinutes - 15
+        let newHour = totalMinutes / 60
+        let newMinute = totalMinutes % 60
+        var dateComponents = DateComponents()
+        dateComponents.hour = newHour
+        dateComponents.minute = newMinute
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        center.add(request)
     }
     
 

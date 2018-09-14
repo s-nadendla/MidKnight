@@ -36,6 +36,7 @@ class SettingsEditTimeTwo: UIViewController {
         defaults.set(hour, forKey: "wakeHour")
         defaults.set(minute, forKey: "wakeMinute")
         print("TIME PICKER 2:    \(hour)   \(minute)")
+        defaults.set(0, forKey: "streak")
     }
     
 

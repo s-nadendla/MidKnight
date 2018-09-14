@@ -12,6 +12,7 @@ class AchievementsPage: UIViewController, UITableViewDataSource, UITableViewDele
 
     @IBOutlet weak var tableView: UITableView!
     
+    let mainHeaders = ["First Night","Second Night", "First Week", "First Month", "3 Months", "?","?","?","?","?","?","?","?"]
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .clear
@@ -37,7 +38,9 @@ class AchievementsPage: UIViewController, UITableViewDataSource, UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseCellIdentifier") as! TableViewCellCustom
         cell.layer.backgroundColor = UIColor.clear.cgColor
 
-        cell.mainLabel.text = "test"
+        cell.mainLabel.text = mainHeaders[indexPath.row]
+
+        
         return cell
     }
     

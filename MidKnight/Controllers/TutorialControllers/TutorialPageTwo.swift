@@ -32,10 +32,13 @@ class TutorialPageTwo: UIViewController {
         content.categoryIdentifier = "reminder"
         content.userInfo = ["customData": "dailyNotification"]
         content.sound = UNNotificationSound.default()
-        
+        var totalMinutes = (hour * 60) + minute
+        totalMinutes = totalMinutes - 15
+        let newHour = totalMinutes / 60
+        let newMinute = totalMinutes % 60
         var dateComponents = DateComponents()
-        dateComponents.hour = hour
-        dateComponents.minute = minute
+        dateComponents.hour = newHour
+        dateComponents.minute = newMinute
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
