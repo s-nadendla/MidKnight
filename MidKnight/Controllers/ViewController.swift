@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bedtimeStatusLabel: UILabel!
     
-    var hourRemaining = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -181,8 +180,8 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
         let streak = defaults.integer(forKey: "streak")
         defaults.set(streak + 1,forKey: "streak")
-        print(streak)
-        
+        print("streak \(streak)")
+
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "sleepSegue" {
