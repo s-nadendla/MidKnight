@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         let streak = defaults.integer(forKey: "streak")
         streakIndicator.text = String(streak)
         gameTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
-
+        unlock()
         timeRemaining()
     }
     
@@ -180,6 +180,35 @@ class ViewController: UIViewController {
             return true
         }
 
+    }
+    func unlock() {
+        let defaults = UserDefaults.standard
+        var unlockID = defaults.array(forKey: "unlockArray")
+        print(unlockID)
+        let streak = defaults.integer(forKey: "streak")
+        if streak == 1 {
+            unlockID![1] = true
+        }
+        if streak == 3 {
+            unlockID![2] = true
+        }
+        if streak == 7 {
+            unlockID![3] = true
+        }
+        if streak == 30 {
+            unlockID![4] = true
+        }
+        if streak == 90 {
+            unlockID![5] = true
+        }
+        if streak == 180 {
+            unlockID![6] = true
+        }
+        if streak == 365 {
+            unlockID![7] = true
+        }
+        print("Unlock Array: \(unlockID)")
+        defaults.set(unlockID, forKey: "unlockArray")
     }
 }
 

@@ -14,6 +14,11 @@ class SleepPage: UIViewController {
 
         super.viewDidLoad()
         
+        let defaults = UserDefaults.standard
+        let streak = defaults.integer(forKey: "streak")
+        print("streak \(streak)")
+        defaults.set(streak + 1, forKey: "streak")
+        
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
 

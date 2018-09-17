@@ -11,6 +11,10 @@ import UIKit
 class TableViewCellCustom: UITableViewCell {
 
     @IBOutlet weak var mainLabel: UILabel!
+    
+    @IBOutlet weak var mainImage: UIImageView!
+    
+    @IBOutlet weak var subLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

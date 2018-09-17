@@ -63,6 +63,9 @@ class TutorialPageTwo: UIViewController {
         defaults.set(hour, forKey: "sleepHour")
 
         defaults.set(0, forKey: "streak")
+        var array: [Bool] = [true, false, false, false, false, false, false]
+
+        defaults.set(array, forKey: "unlockArray")
         print("TIME PICKER 1:    \(hour)   \(minute)")
         
         let center = UNUserNotificationCenter.current()

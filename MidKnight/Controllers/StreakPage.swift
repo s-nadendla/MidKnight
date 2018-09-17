@@ -18,9 +18,9 @@ class StreakPage: UIViewController {
         // Do any additional setup after loading the view.
         let defaults = UserDefaults.standard
 
-        let streak = defaults.integer(forKey: "streak") + 1
+        let streak = defaults.integer(forKey: "streak")
+        print("streak \(streak)")
         streakNumber.text = String(streak)
-        defaults.set(streak, forKey: "streak")
     }
 
     override func didReceiveMemoryWarning() {

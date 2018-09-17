@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,24 +16,24 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="uDb-NC-RHl">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJy-ld-bwr">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nJy-ld-bwr" secondAttribute="height" multiplier="46:21" id="8Gx-Kf-bUm"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QO-I4-bLa">
-                                <rect key="frame" x="0.0" y="146" width="320" height="83"/>
+                                <rect key="frame" x="0.0" y="171" width="375" height="83"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Half Moon" translatesAutoresizingMaskIntoConstraints="NO" id="QRH-gB-vdC">
-                                        <rect key="frame" x="72" y="0.0" width="177" height="83"/>
+                                        <rect key="frame" x="99.666666666666686" y="0.0" width="177" height="83"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QRH-gB-vdC" secondAttribute="height" multiplier="177:83" id="jae-9v-mX8"/>
                                         </constraints>
@@ -48,7 +48,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MidKnight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJi-wD-Rfm">
-                                <rect key="frame" x="0.0" y="228" width="320" height="31.5"/>
+                                <rect key="frame" x="0.0" y="253" width="375" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qJi-wD-Rfm" secondAttribute="height" multiplier="375:37" id="hiR-dQ-vqS"/>
                                 </constraints>
@@ -57,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Form Healthy Sleeping Habits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ep-2Z-4jJ">
-                                <rect key="frame" x="0.0" y="259.5" width="320" height="17"/>
+                                <rect key="frame" x="0.0" y="290" width="375" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0ep-2Z-4jJ" secondAttribute="height" multiplier="75:4" id="hPe-vg-MlX"/>
                                 </constraints>

@@ -35,11 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("lockbutton")
         } else {
 
-            let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "ViewController") as UIViewController
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            self.window?.rootViewController = initialViewControlleripad
-            self.window?.makeKeyAndVisible()
+
             
             //user pressed home button
             print("homebutton")
@@ -59,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 let content = UNMutableNotificationContent()
                 content.title = "It's Sleep Time!"
-                content.body = "Turn off your phone"
+                content.body = "Check back in or your streak will be reset!"
                 content.sound = UNNotificationSound.default()
                 
                 
@@ -77,7 +73,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 })
             }
-
+            let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "ViewController") as UIViewController
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = initialViewControlleripad
+            self.window?.makeKeyAndVisible()
         }
     }
 

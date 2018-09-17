@@ -77,6 +77,7 @@
 		B95542A921254E190070CF79 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B9A57D342143AA5400ED09F6 /* Achievements */,
 				B9A57D1F213D3DF300ED09F6 /* Settings */,
 				B95034FD21314B4C0062DC6C /* SlideGestures */,
 				B95542AE2125505F0070CF79 /* TutorialControllers */,
@@ -117,7 +118,6 @@
 		B97C713F21200030007446BD /* MidKnight */ = {
 			isa = PBXGroup;
 			children = (
-				B9A57D342143AA5400ED09F6 /* Achievements */,
 				B9A57D24213D47D000ED09F6 /* Extension */,
 				B95542A921254E190070CF79 /* Controllers */,
 				B97C714021200030007446BD /* AppDelegate.swift */,
@@ -154,7 +154,8 @@
 				B9A57D352143BE6C00ED09F6 /* AchievementsPage.swift */,
 				B9A57D372143CA3700ED09F6 /* TableViewCellCustom.swift */,
 			);
-			path = Achievements;
+			name = Achievements;
+			path = ../Achievements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
