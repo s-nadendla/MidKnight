@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var minuteLabel: UILabel!
     
     @IBOutlet weak var streakIndicator: UILabel!
+    @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var bedtimeStatusLabel: UILabel!
     var gameTimer: Timer!
     
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         let defaults = UserDefaults.standard
         let streak = defaults.integer(forKey: "streak")
         streakIndicator.text = String(streak)
@@ -65,9 +67,14 @@ class ViewController: UIViewController {
 
     }
     func createProgressCircle(){
+        timeView.center.x = view.center.x
 
         let percentTime = -((Float(timeDifference) - 1440)/1440)
-        let center = CGPoint.init(x: 375/2, y: 210)
+        let width = UIScreen.main.bounds.width
+        let center = timeView.center
+        print("center \(center)")
+        let safeAreaTop = self.view.safeAreaInsets.top
+        //let center = CGPoint.init(x: width/2, y: 210)
         
         let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: 0, endAngle: CGFloat.pi * CGFloat(percentTime) * 3/2, clockwise: true)
         shapeLayer.fillColor = UIColor.clear.cgColor
