@@ -39,14 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             //user pressed home button
             print("homebutton")
-            let defaults = UserDefaults.standard
-            defaults.set(0, forKey: "streak")
+
 
             let topMostViewController = UIApplication.shared.topMostViewController()
 
             if topMostViewController is SleepPage {
                 //do something if it's an instance of that class
                 print("test")
+                let defaults = UserDefaults.standard
+                defaults.set(0, forKey: "streak")
                 let center = UNUserNotificationCenter.current()
                 center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
                     // Enable or disable features based on authorization.
@@ -55,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 let content = UNMutableNotificationContent()
                 content.title = "It's Sleep Time!"
-                content.body = "Check back in or your streak will be reset!"
+                content.body = "Your streak has been reset"
                 content.sound = UNNotificationSound.default()
                 
                 
@@ -99,6 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !UserDefaults.standard.bool(forKey: "FirstLaunch") {
             UserDefaults.standard.set(true, forKey: "FirstLaunch")
         }
+
         
     }
     func DidUserPressLockButton() -> Bool {

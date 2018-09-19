@@ -16,9 +16,9 @@ class AchievementsPage: UIViewController, UITableViewDataSource, UITableViewDele
     
     var achievementComplete = 0
     
-    let mainHeaders = ["First Steps","First Night","Third Night", "First Week", "First Month", "90 Nights", "180 Nights","365 Nights"]
+    let mainHeaders = ["First Steps","First Night","Third Night", "First Week", "First Month", "90 Nights", "180 Nights"]
     let mainImage = ["knight_A1", "knight_A2", "knight_A3", "knight_A4", "knight_A5", "knight_A6", "knight_A7"]
-    let subHeaders = ["You Commited to Change","Your Sleep Journey Begins","","","","",""]
+    let subHeaders = ["Committed to Making a Positive Change","Start of Your Sleep Journey","Continue the Great Work","Adjusted to New Sleep Schedule","Keep Up the Consistency","Absolutely Amazing Work","Feel Proud of the Consistency you have achieved"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

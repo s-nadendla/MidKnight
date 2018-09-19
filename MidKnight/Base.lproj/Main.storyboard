@@ -552,23 +552,23 @@
                                             <constraint firstAttribute="height" constant="5" id="vzK-TX-3h1"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="cNC-yy-dp7" userLabel="Settings">
+                                    <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="cNC-yy-dp7" userLabel="Settings">
                                         <rect key="frame" x="138" y="49" width="31" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="lmd-6o-se3" userLabel="Settings">
+                                    <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="lmd-6o-se3" userLabel="Settings">
                                         <rect key="frame" x="215" y="49" width="31" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="Url-lH-r4h" userLabel="Settings">
+                                    <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="Url-lH-r4h" userLabel="Settings">
                                         <rect key="frame" x="254" y="49" width="31" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="wJH-RD-QgM" userLabel="Settings">
+                                    <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="wJH-RD-QgM" userLabel="Settings">
                                         <rect key="frame" x="292" y="49" width="31" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleChecked" translatesAutoresizingMaskIntoConstraints="NO" id="7WN-VZ-UPo" userLabel="Settings">
+                                    <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="7WN-VZ-UPo" userLabel="Settings">
                                         <rect key="frame" x="99" y="49" width="31" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -576,11 +576,11 @@
                                         <rect key="frame" x="10" y="44" width="42" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="IUv-nU-MS4" userLabel="Settings">
+                                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="IUv-nU-MS4" userLabel="Settings">
                                         <rect key="frame" x="60" y="49" width="31" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="95o-dZ-kpP" userLabel="Settings">
+                                    <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleBlank" translatesAutoresizingMaskIntoConstraints="NO" id="95o-dZ-kpP" userLabel="Settings">
                                         <rect key="frame" x="176" y="49" width="31" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -589,6 +589,13 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RL3-mi-z2V">
+                                        <rect key="frame" x="69" y="20" width="0.0" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -631,7 +638,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="adjustedLabel" destination="RL3-mi-z2V" id="YHA-yQ-mhd"/>
                         <outlet property="bedtimeStatusLabel" destination="Pch-tU-2Sw" id="Y1i-TU-2gM"/>
+                        <outlet property="checkCircle1" destination="IUv-nU-MS4" id="8X1-WR-FhP"/>
+                        <outlet property="checkCircle2" destination="7WN-VZ-UPo" id="kre-0q-HE0"/>
+                        <outlet property="checkCircle3" destination="cNC-yy-dp7" id="jfD-fB-iKE"/>
+                        <outlet property="checkCircle4" destination="95o-dZ-kpP" id="3rz-E4-VeL"/>
+                        <outlet property="checkCircle5" destination="lmd-6o-se3" id="hNG-0V-hhZ"/>
+                        <outlet property="checkCircle6" destination="Url-lH-r4h" id="Uxl-bf-eDS"/>
+                        <outlet property="checkCircle7" destination="wJH-RD-QgM" id="rCo-af-Nlf"/>
                         <outlet property="hourLabel" destination="UXt-6W-8lP" id="wVl-5f-k0E"/>
                         <outlet property="minuteLabel" destination="ZEa-qV-pQL" id="k4q-MV-X4g"/>
                         <outlet property="streakIndicator" destination="M8T-DX-CEO" id="2nV-to-LXH"/>
@@ -1433,7 +1448,6 @@ Sai Nadendla</string>
         <image name="Button Outline" width="161" height="47"/>
         <image name="CheckIntroIcon" width="180" height="180"/>
         <image name="CircleBlank" width="33" height="32"/>
-        <image name="CircleChecked" width="33" height="32"/>
         <image name="ForwardArrow" width="12" height="18"/>
         <image name="Knight" width="121" height="171"/>
         <image name="LargeCircleBlank" width="44" height="43"/>

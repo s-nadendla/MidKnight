@@ -17,9 +17,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     
+    
+    @IBOutlet weak var checkCircle1: UIImageView!
+
+    @IBOutlet weak var checkCircle2: UIImageView!
+    
+    @IBOutlet weak var checkCircle3: UIImageView!
+    
+    @IBOutlet weak var checkCircle4: UIImageView!
+    
+    @IBOutlet weak var checkCircle5: UIImageView!
+    
+    @IBOutlet weak var checkCircle6: UIImageView!
+    
+    @IBOutlet weak var checkCircle7: UIImageView!
+    
+    
+    @IBOutlet weak var adjustedLabel: UILabel!
     @IBOutlet weak var streakIndicator: UILabel!
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var bedtimeStatusLabel: UILabel!
+    
+    
     var gameTimer: Timer!
     
     
@@ -30,10 +49,22 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let defaults = UserDefaults.standard
+        
+        if let streakDate = defaults.object(forKey: "streakDate") {
+            let currentDate = Date()
+            let durationToLastStreak = Int(currentDate.timeIntervalSince(streakDate as! Date))
+            print("durationToLastStreak: \(durationToLastStreak)")
+            if durationToLastStreak > 90000{
+                defaults.set(0, forKey: "streak")
+
+            }
+        }
         let streak = defaults.integer(forKey: "streak")
+
         streakIndicator.text = String(streak)
         gameTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
         unlock()
+        sleepCycleBar()
         timeRemaining()
     }
     
@@ -198,6 +229,7 @@ class ViewController: UIViewController {
         }
         if streak == 3 {
             unlockID![2] = true
+            
         }
         if streak == 7 {
             unlockID![3] = true
@@ -211,11 +243,73 @@ class ViewController: UIViewController {
         if streak == 180 {
             unlockID![6] = true
         }
-        if streak == 365 {
-            unlockID![7] = true
-        }
+
         print("Unlock Array: \(unlockID)")
         defaults.set(unlockID, forKey: "unlockArray")
+    }
+    func sleepCycleBar(){
+        let defaults = UserDefaults.standard
+        let streak = defaults.integer(forKey: "streak")
+        if streak == 0 {
+            checkCircle1.image = UIImage(named: "CircleBlank")
+            checkCircle2.image = UIImage(named: "CircleBlank")
+            checkCircle3.image = UIImage(named: "CircleBlank")
+            checkCircle4.image = UIImage(named: "CircleBlank")
+            checkCircle5.image = UIImage(named: "CircleBlank")
+            checkCircle6.image = UIImage(named: "CircleBlank")
+            checkCircle7.image = UIImage(named: "CircleBlank")
+            adjustedLabel.text = ""
+        }
+        else if streak == 1 {
+            checkCircle1.image = UIImage(named: "CircleChecked")
+        }
+        else if streak == 2 {
+            checkCircle1.image = UIImage(named: "CircleChecked")
+            checkCircle2.image = UIImage(named: "CircleChecked")
+
+
+        }
+        else if streak == 3 {
+            checkCircle1.image = UIImage(named: "CircleChecked")
+            checkCircle2.image = UIImage(named: "CircleChecked")
+            checkCircle3.image = UIImage(named: "CircleChecked")
+
+        }
+        else if streak == 4 {
+            checkCircle1.image = UIImage(named: "CircleChecked")
+            checkCircle2.image = UIImage(named: "CircleChecked")
+            checkCircle3.image = UIImage(named: "CircleChecked")
+            checkCircle4.image = UIImage(named: "CircleChecked")
+
+        }
+        else if streak == 5 {
+            checkCircle1.image = UIImage(named: "CircleChecked")
+            checkCircle2.image = UIImage(named: "CircleChecked")
+            checkCircle3.image = UIImage(named: "CircleChecked")
+            checkCircle4.image = UIImage(named: "CircleChecked")
+            checkCircle5.image = UIImage(named: "CircleChecked")
+
+        }
+        else if streak == 6 {
+            checkCircle1.image = UIImage(named: "CircleChecked")
+            checkCircle2.image = UIImage(named: "CircleChecked")
+            checkCircle3.image = UIImage(named: "CircleChecked")
+            checkCircle4.image = UIImage(named: "CircleChecked")
+            checkCircle5.image = UIImage(named: "CircleChecked")
+            checkCircle6.image = UIImage(named: "CircleChecked")
+
+        }
+        else if streak >= 7 {
+            checkCircle1.image = UIImage(named: "CircleChecked")
+            checkCircle2.image = UIImage(named: "CircleChecked")
+            checkCircle3.image = UIImage(named: "CircleChecked")
+            checkCircle4.image = UIImage(named: "CircleChecked")
+            checkCircle5.image = UIImage(named: "CircleChecked")
+            checkCircle6.image = UIImage(named: "CircleChecked")
+            checkCircle7.image = UIImage(named: "CircleChecked")
+            adjustedLabel.text = "Adjusted to Sleep Cycle"
+
+        }
     }
 }
 

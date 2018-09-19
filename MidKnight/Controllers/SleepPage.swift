@@ -15,7 +15,9 @@ class SleepPage: UIViewController {
         super.viewDidLoad()
         
         let defaults = UserDefaults.standard
+        let date = Date()
         let streak = defaults.integer(forKey: "streak")
+        defaults.set(date, forKey: "streakDate")
         print("streak \(streak)")
         defaults.set(streak + 1, forKey: "streak")
         
@@ -25,7 +27,7 @@ class SleepPage: UIViewController {
     }
     @objc func willEnterForeground() {
         let timeDifference = calculateTimeDifference()
-        if timeDifference < 30 {
+        if timeDifference < 30 || timeDifference > 1430{
             self.performSegue(withIdentifier: "streakSegue", sender: self)
         }
     }
