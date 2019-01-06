@@ -27,8 +27,12 @@ class SleepPage: UIViewController {
     }
     @objc func willEnterForeground() {
         let timeDifference = calculateTimeDifference()
-        if timeDifference < 30 || timeDifference > 1430{
+        if timeDifference < 60 || timeDifference > 1380{
             self.performSegue(withIdentifier: "streakSegue", sender: self)
+        } else {
+            self.performSegue(withIdentifier: "streakEndSegue", sender: self)
+            let defaults = UserDefaults.standard
+            defaults.set(0, forKey: "streak")
         }
     }
     deinit {
@@ -43,9 +47,11 @@ class SleepPage: UIViewController {
 
     
     @IBAction func cancelButton(_ sender: Any) {
-        
+        //DONT DELETE
 
     }
+    
+    
     func calculateTimeDifference() -> Int{
         let defaults = UserDefaults.standard
         let wakeHour = defaults.integer(forKey: "wakeHour")
@@ -81,30 +87,32 @@ class SleepPage: UIViewController {
         if identifier == "cancelSegue" {
 
             let alert = UIAlertController(title: "Are You Sure?", message: "Your streak will end.", preferredStyle: UIAlertControllerStyle.alert)
-                
+
             // add an action (button)
             alert.addAction(UIAlertAction(title: "Stay", style: UIAlertActionStyle.default, handler: nil))
             alert.addAction(UIAlertAction(title: "Leave", style: UIAlertActionStyle.destructive, handler: { action in
-                    
+
                 // do something like...
                 let defaults = UserDefaults.standard
                 defaults.set(0, forKey: "streak")
                 self.performSegue(withIdentifier: "cancelSegue", sender: self)
 
-                    
+
             }))
 
-                
+
             // show the alert
             self.present(alert, animated: true, completion: nil)
             return false
-            
+
         }
-        if (identifier == "streakSegue") {
+        if (identifier == "streakSegue" || identifier == "streakEndSegue") {
             return false
         }
         else {
             return true
         }
     }
+    
+
 }

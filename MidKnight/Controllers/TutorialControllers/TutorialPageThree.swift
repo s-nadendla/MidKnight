@@ -18,7 +18,8 @@ class TutorialPageThree: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         timePicker.backgroundColor = UIColor.black
         timePicker.setValue(UIColor.white, forKey: "textColor")
-        
+        let date = Calendar.current.date(bySettingHour: 7, minute: 00, second: 0, of: Date())!
+        timePicker.setDate(date, animated: true)
     }
     
     @IBAction func nextButton(_ sender: Any) {

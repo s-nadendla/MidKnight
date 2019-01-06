@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController {
     
@@ -80,7 +81,10 @@ class ViewController: UIViewController {
 
         if UserDefaults.standard.bool(forKey: "FirstLaunch") {
             // Not First Launch, proceed as normal
-
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+                // Enable or disable features based on authorization.
+            }
         } else {
             // Show tutorial setup (perhaps using performSegueWithIdentifier)
             self.performSegue(withIdentifier: "tutorialLauncher", sender: self)
@@ -104,8 +108,7 @@ class ViewController: UIViewController {
         let width = UIScreen.main.bounds.width
         let center = timeView.center
         print("center \(center)")
-        let safeAreaTop = self.view.safeAreaInsets.top
-        //let center = CGPoint.init(x: width/2, y: 210)
+         //let center = CGPoint.init(x: width/2, y: 210)
         
         let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: 0, endAngle: CGFloat.pi * CGFloat(percentTime) * 3/2, clockwise: true)
         shapeLayer.fillColor = UIColor.clear.cgColor
@@ -258,7 +261,7 @@ class ViewController: UIViewController {
             checkCircle5.image = UIImage(named: "CircleBlank")
             checkCircle6.image = UIImage(named: "CircleBlank")
             checkCircle7.image = UIImage(named: "CircleBlank")
-            adjustedLabel.text = ""
+            adjustedLabel.text = " "
         }
         else if streak == 1 {
             checkCircle1.image = UIImage(named: "CircleChecked")

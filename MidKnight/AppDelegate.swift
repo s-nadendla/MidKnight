@@ -30,70 +30,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        if (DidUserPressLockButton()) {
-            //User pressed lock button
-            print("lockbutton")
-        } else {
 
-
-            
-            //user pressed home button
-            print("homebutton")
-
-
-            let topMostViewController = UIApplication.shared.topMostViewController()
-
-            if topMostViewController is SleepPage {
-                //do something if it's an instance of that class
-                print("test")
-                let defaults = UserDefaults.standard
-                defaults.set(0, forKey: "streak")
-                let center = UNUserNotificationCenter.current()
-                center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
-                    // Enable or disable features based on authorization.
-                    
-                }
-                
-                let content = UNMutableNotificationContent()
-                content.title = "It's Sleep Time!"
-                content.body = "Your streak has been reset"
-                content.sound = UNNotificationSound.default()
-                
-                
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-                
-                
-                
-                let identifier = "UYLLocalNotification"
-                let request = UNNotificationRequest(identifier: identifier,
-                                                    content: content, trigger: trigger)
-                center.add(request, withCompletionHandler: { (error) in
-                    if let error = error {
-                        // Something went wrong
-                        print("error")
-                    }
-                })
-            }
-            let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "ViewController") as UIViewController
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            self.window?.rootViewController = initialViewControlleripad
-            self.window?.makeKeyAndVisible()
-        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+//        let topMostViewController = UIApplication.shared.topMostViewController()
+//
+//        if topMostViewController is SleepPage {
+//            //do something if it's an instance of that class
+//            print("test6878434")
+//            let defaults = UserDefaults.standard
+//            defaults.set(0, forKey: "streak")
+//            let center = UNUserNotificationCenter.current()
+//            center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+//                // Enable or disable features based on authorization.
+//
+//            }
+//
+//            let content = UNMutableNotificationContent()
+//            content.title = "It's Sleep Time!"
+//            content.body = "Your streak has been reset"
+//            content.sound = UNNotificationSound.default()
+//
+//
+//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+//
+//
+//
+//            let identifier = "UYLLocalNotification"
+//            let request = UNNotificationRequest(identifier: identifier,
+//                                                content: content, trigger: trigger)
+//            center.add(request, withCompletionHandler: { (error) in
+//                if let error = error {
+//                    // Something went wrong
+//                    print("error")
+//                }
+//            })
+//        }
+//        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "ViewController") as UIViewController
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window?.rootViewController = initialViewControlleripad
+//        self.window?.makeKeyAndVisible()
+        
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        
     }
 
     func applicationDidFinishLaunching(application: UIApplication) {
@@ -103,11 +93,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
     }
-    func DidUserPressLockButton() -> Bool {
-        let oldBrightness = UIScreen.main.brightness
-        UIScreen.main.brightness = oldBrightness + (oldBrightness <= 0.01 ? (0.01) : (-0.01))
-        return oldBrightness != UIScreen.main.brightness
-    }
+//    func DidUserPressLockButton() -> Bool {
+//        let oldBrightness = UIScreen.main.brightness
+//        UIScreen.main.brightness = oldBrightness + (oldBrightness <= 0.01 ? (0.01) : (-0.01))
+//        return oldBrightness != UIScreen.main.brightness
+//    }
     
 }
 

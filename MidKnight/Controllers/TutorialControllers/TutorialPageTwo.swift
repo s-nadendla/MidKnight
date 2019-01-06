@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import UserNotifications
 
-
 class TutorialPageTwo: UIViewController {
     
     @IBOutlet weak var timePicker: UIDatePicker!
@@ -19,7 +18,11 @@ class TutorialPageTwo: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         timePicker.backgroundColor = UIColor.black
         timePicker.setValue(UIColor.white, forKey: "textColor")
+        let date = Calendar.current.date(bySettingHour: 23, minute: 00, second: 0, of: Date())!
+        timePicker.setDate(date, animated: true)
         
+
+
     }
     
     
@@ -68,11 +71,7 @@ class TutorialPageTwo: UIViewController {
         defaults.set(array, forKey: "unlockArray")
         print("TIME PICKER 1:    \(hour)   \(minute)")
         
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
-            // Enable or disable features based on authorization.
 
-        }
         
         scheduleLocal(hour: hour, minute: minute)
     }

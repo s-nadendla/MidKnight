@@ -17,6 +17,11 @@ class SettingsEditTime: UIViewController {
         super.viewDidLoad()
         timePicker.backgroundColor = UIColor.clear
         timePicker.setValue(UIColor.white, forKey: "textColor")
+        let defaults = UserDefaults.standard
+        let minute = defaults.integer(forKey: "sleepMinute")
+        let hour = defaults.integer(forKey: "sleepHour")
+        let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: Date())!
+        timePicker.setDate(date, animated: false)
         // Do any additional setup after loading the view.
     }
 
@@ -41,7 +46,6 @@ class SettingsEditTime: UIViewController {
         
         defaults.set(0, forKey: "streak")
         print("TIME PICKER 1:    \(hour)   \(minute)")
-        
         
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         scheduleLocal(hour: hour, minute: minute)

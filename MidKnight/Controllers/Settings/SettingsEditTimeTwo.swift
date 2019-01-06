@@ -14,9 +14,16 @@ class SettingsEditTimeTwo: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         timePicker.backgroundColor = UIColor.clear
         timePicker.setValue(UIColor.white, forKey: "textColor")
-        // Do any additional setup after loading the view.
+        
+        let defaults = UserDefaults.standard
+        let minute = defaults.integer(forKey: "wakeMinute")
+        let hour = defaults.integer(forKey: "wakeHour")
+        
+        let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: Date())!
+        timePicker.setDate(date, animated: false)
     }
 
     override func didReceiveMemoryWarning() {

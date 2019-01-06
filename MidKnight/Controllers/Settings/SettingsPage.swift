@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import StoreKit
 
 class SettingsPage: UIViewController {
     
@@ -25,6 +25,16 @@ class SettingsPage: UIViewController {
         
     }
     
-
+    @IBAction func rateAppButton(_ sender: Any) {
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
+        } else {
+            // Fallback on earlier versions
+            
+            let url = URL(string: "itms-apps:itunes.apple.com/us/app/apple-store/id1436688991?mt=8&action=write-review")!
+            UIApplication.shared.openURL(url)
+       }
+    }
+    
     
 }
